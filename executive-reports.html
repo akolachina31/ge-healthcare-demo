@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Executive Reports | GE Healthcare</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="setUserRole()" class="fade-in">
+    <nav>
+        <img src="assets/ge-logo.png" class="logo">
+        <ul>
+            <li><a href="home.html">Dashboard</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li class="admin-only"><a href="admin-dashboard.html">Admin Panel</a></li>
+            <li class="exec-only"><a href="executive-reports.html">Executive Reports</a></li>
+            <li class="user-only"><a href="user-tasks.html">My Tasks</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="help.html">Help</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Executive Reports</h1>
+
+        <label for="report-type">Select Report Type:</label>
+        <select id="report-type">
+            <option>Monthly Performance</option>
+            <option>Quarterly Analysis</option>
+            <option>Annual Overview</option>
+        </select>
+        <button onclick="alert('Report Generated!')">Generate Report</button>
+
+        <canvas id="reportChart" width="600" height="300" style="margin-top: 30px;"></canvas>
+
+        <button onclick="alert('Report downloaded.')">Download PDF</button>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById("reportChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr"],
+                    datasets: [{
+                        label: "Performance",
+                        data: [65, 59, 80, 81],
+                        backgroundColor: "#005eb8"
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

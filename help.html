@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help & FAQ | GE Healthcare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="setUserRole()">
+    <nav>
+        <img src="assets/ge-logo.png" class="logo">
+        <ul>
+            <li><a href="home.html">Dashboard</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li class="admin-only"><a href="admin-dashboard.html">Admin Panel</a></li>
+            <li class="exec-only"><a href="executive-reports.html">Executive Reports</a></li>
+            <li class="user-only"><a href="user-tasks.html">My Tasks</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="help.html">Help</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Help & Frequently Asked Questions</h1>
+
+        <button onclick="toggleFaq('faq1')">How do I reset my password?</button>
+        <div id="faq1" style="display:none;">Please contact your admin to reset your password securely.</div>
+
+        <button onclick="toggleFaq('faq2')">Who do I contact for support?</button>
+        <div id="faq2" style="display:none;">Use the Contact page to submit a support ticket. Response in 24 hours.</div>
+
+        <button onclick="toggleFaq('faq3')">Can I update my profile?</button>
+        <div id="faq3" style="display:none;">Yes, go to the Profile page and click Save after editing your info.</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
